@@ -1,0 +1,5 @@
+-- SELECT * FROM users
+-- UPDATE users
+-- set verified = true
+-- SELECT * FROM category
+-- SELECT * FROM products
