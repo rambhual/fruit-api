@@ -20,7 +20,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService);
-
+  app.enableCors({ origin: 'http://localhost:3000' });
   app.useGlobalPipes(new ValidationPipe());
 
   app.useGlobalFilters(
@@ -44,7 +44,9 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   await app.listen(port, async () => {
-    console.log(`The server is running on ${port} port: http://localhost:${port}/api`);
+    console.log(
+      `The server is running on ${port} port: http://localhost:${port}/api`,
+    );
   });
 }
 bootstrap();
